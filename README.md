@@ -8,7 +8,7 @@
 - [Contributors <a name = "Contributors"></a>](#contributors-)
 
 ## About <a name = "about"></a>
-- It's a simple web form with VueJS.
+- It's a simple web form implemented with VueJS.
 
 ## website description <a name = "website-description"></a>
 
