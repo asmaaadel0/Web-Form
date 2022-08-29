@@ -7,12 +7,12 @@
         <input type="password" name="password" id="password" required v-model="password">
 
         <label for="role">Role:</label>
-        <select name="role" id="role" v-model="role">
+        <select name="role" id="role" v-model="role" required>
             <option value="developer">Web Developer</option>
             <option value="designer">Web Designer</option>
         </select>
         <div class="terms">
-            <input type="checkbox" name="terms" id="terms">
+            <input type="checkbox" name="terms" id="terms" required v-model="term">
             <label for="terms">Accept terms and conditions</label>
         </div>
     </form>
@@ -25,6 +25,7 @@ export default {
             email: '',
             password: '',
             role: 'developer',
+            term:false,
         }
     }
 }
