@@ -15,6 +15,7 @@
 
         <label for="skills">Skills:</label>
         <input type="text" name="skills" id="skills" v-model="tempSkill" @keyup="addSkill">
+        <div class="add">skills (press comma to add)</div>
         <div v-for="skill in skills" :key="skill" class="pill">
             <span @click="deleteSkill(skill)">{{  skill  }}</span>
         </div>
@@ -78,7 +79,8 @@ form {
     border-radius: 10px;
 }
 
-label {
+label,
+.add {
     color: #aaa;
     display: inline-block;
     margin: 25px 0 15px;
