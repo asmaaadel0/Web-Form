@@ -39,7 +39,7 @@ export default {
         addSkill(e) {
             if (e.key === ',' && this.tempSkill) {
                 if (this.skills.find(skill => skill === this.tempSkill.slice(0, -1))) {
-                    alert("You add this skill before!");
+                    // alert("You add this skill before!");
                     this.tempSkill = "";
                     return;
                 }
