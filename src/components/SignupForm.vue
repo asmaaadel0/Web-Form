@@ -1,10 +1,11 @@
 <template>
-    <form>
+    <form @submit.prevent="handleSubmit">
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" required v-model="email">
 
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" required v-model="password">
+        <div v-if="passwordError" class="error">{{  passwordError  }}</div>
 
         <label for="role">Role:</label>
         <select name="role" id="role" v-model="role" required>
@@ -13,7 +14,7 @@
         </select>
 
         <label for="skills">Skills:</label>
-        <input type="text" name="skills" id="skills" v-model="tempSkill" required @keyup="addSkill">
+        <input type="text" name="skills" id="skills" v-model="tempSkill" @keyup="addSkill">
         <div v-for="skill in skills" :key="skill" class="pill">
             <span @click="deleteSkill(skill)">{{  skill  }}</span>
         </div>
@@ -38,6 +39,7 @@ export default {
             term: false,
             tempSkill: '',
             skills: [],
+            passwordError: '',
         }
     },
     methods: {
@@ -58,6 +60,9 @@ export default {
             this.skills = this.skills.filter((skill) => {
                 return skillDel !== skill
             });
+        },
+        handleSubmit() {
+            this.passwordError = this.password.length > 5 ? '' : 'Please enter valid password(more than 5 chars)'
         }
     }
 }
@@ -114,7 +119,8 @@ input[type="checkbox"] {
     color: #777;
     cursor: pointer;
 }
-button{
+
+button {
     background: #0b6dff;
     border: 0;
     padding: 10px 20px;
@@ -122,7 +128,15 @@ button{
     color: white;
     border-radius: 20px;
 }
-.submit{
+
+.submit {
     text-align: center;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    font-size: 0.8em;
+    font-weight: bold;
 }
 </style>
